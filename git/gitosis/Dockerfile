@@ -11,7 +11,7 @@ ENV GIT_USER git
 ## yourself password
 ENV GIT_PASS ee79beaa129e56a49f79901815f1d54f0cf2bfb538bf879c19469c180d80e323
 
-ENV GIT_REPOSITORIES /home/git/repositories
+ENV GIT_REPOSITORIES /home/${GIT_USER}/repositories
 
 ## yourself git config
 ENV GIT_CONF_USER pengh
@@ -28,7 +28,7 @@ RUN mkdir -p ${RSA_KEY_STORE_PATH} \
 	&& useradd -m ${GIT_USER} \
 	&& echo ${GIT_USER}:${GIT_PASS} | chpasswd \
 	&& mkdir -p ${GIT_REPOSITORIES} \
-	&& chown git:git ${GIT_REPOSITORIES} \
+	&& chown ${GIT_USER}:${GIT_USER} ${GIT_REPOSITORIES} \
 	&& chmod 755 ${GIT_REPOSITORIES} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} \
