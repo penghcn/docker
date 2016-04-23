@@ -43,7 +43,7 @@ RUN mkdir -p $GIT_HOME/bin \
 		echo 'gitolite/install -to $HOME/bin && $HOME/bin/gitolite setup -pk /data/rsa/id_rsa.pub'\
 	} | tee /tmp/gitolite.sh\
 	&& chmod 0777 /tmp/gitolite.sh
-RUN su - git -s /bin/bash tmp/gitolite.sh
+RUN su - git -s /bin/bash /tmp/gitolite.sh
 
 
 
