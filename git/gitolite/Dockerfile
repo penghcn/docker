@@ -35,8 +35,8 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
 RUN su - git -c cd /tmp && mkdir -p /tmp/bin \
-	&& git clone ${GITOLITE_GITHUB} && cd gitolite \
-	&& install -to /tmp/bin \
+	&& git clone ${GITOLITE_GITHUB} \
+	&& gitolite/install -to /tmp/bin \
 	&& /tmp/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE}
 
 EXPOSE 22
