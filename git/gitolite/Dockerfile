@@ -36,7 +36,7 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
-RUN su - git -c mkdir -p $GIT_HOME/bin 
+RUN mkdir -p $GIT_HOME/bin 
 RUN su - git -c echo $HOME 
 RUN su - git -c cd $HOME 
 RUN su - git -c git clone ${GITOLITE_GITHUB} 
