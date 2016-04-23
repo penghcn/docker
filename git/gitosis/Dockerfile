@@ -23,20 +23,20 @@ ENV GITOSIS_GITHUB https://github.com/res0nat0r/gitosis.git
 
 
 RUN mkdir -p ${RSA_KEY_STORE_PATH} && cd ${RSA_KEY_STORE_PATH} 
-RUN	apt-get update	&& apt-get install -y openssh-server openssh-client git-core python-setuptools  
-RUN	ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
-RUN	useradd -m ${GIT_USER} \
+RUN apt-get update && apt-get install -y openssh-server openssh-client git-core python-setuptools  
+RUN ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
+
+RUN useradd -m ${GIT_USER} \
 	&& echo ${GIT_USER}:${GIT_PASS} | chpasswd \
 	&& mkdir -p ${GIT_REPOSITORIES} \
 	&& chown ${GIT_USER}:${GIT_USER} ${GIT_REPOSITORIES} \
 	&& chmod 755 ${GIT_REPOSITORIES} \
 	&& git config --global user.name ${GIT_CONF_USER} \
-	&& git config --global user.email ${GIT_CONF_MAIL} \
-	&& cd /tmp \
-	&& git clone ${GITOSIS_GITHUB} \
-	&& cd gitosis \
-	&& python setup.py install \
-	&& sudo -H -u git gitosis-init < ${RSA_KEY_PUB_FILE} \
+	&& git config --global user.email ${GIT_CONF_MAIL} 
+	
+RUN cd /tmp && git clone ${GITOSIS_GITHUB} && cd gitosis \
+	&& python setup.py install 
+RUN su - git -c gitosis-init < ${RSA_KEY_PUB_FILE} \
 	&& chmod 755 ${GITOSIS_ADMIN_PATH}/hooks/post-update
 
-EXPOSE 40022
+EXPOSE 22
