@@ -36,11 +36,11 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
-RUN su - git -c <<EOF echo $HOME && cd $HOME \
-	&& mkdir -p $HOME/bin \
-	&& git clone ${GITOLITE_GITHUB} \
-	&& gitolite/install -to $HOME/bin \
-	&& $HOME/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE} 
-	EOF
+RUN su - git -c echo $HOME \
+	&& su - git -c cd $HOME \
+	&& su - git -c mkdir -p $HOME/bin \
+	&& su - git -c git clone ${GITOLITE_GITHUB} \
+	&& su - git -c gitolite/install -to $HOME/bin \
+	&& su - git -c $HOME/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE} 
 
 EXPOSE 22
