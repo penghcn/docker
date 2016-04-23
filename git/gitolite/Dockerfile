@@ -19,7 +19,8 @@ ENV GIT_CONF_USER pengh
 ENV GIT_CONF_MAIL qingseyunlan@gmail.com
 
 ENV GITOLITE_ADMIN_PATH $GIT_REPOSITORIES/gitosis-admin.git
-ENV GITOLITE_GITHUB http://github.com/sitaramc/gitolite
+## http://github.com/sitaramc/gitolite
+ENV GITOLITE_GITHUB git://github.com/sitaramc/gitolite
 
 
 RUN mkdir -p ${RSA_KEY_STORE_PATH} && cd ${RSA_KEY_STORE_PATH} 
