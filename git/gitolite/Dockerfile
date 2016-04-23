@@ -39,8 +39,8 @@ RUN useradd -m ${GIT_USER} \
 RUN mkdir -p $GIT_HOME/bin 
 RUN su - git -c echo $HOME 
 RUN su - git -c cd $HOME 
-RUN su - git -c git clone ${GITOLITE_GITHUB} 
+RUN su - git -c git clone git://github.com/sitaramc/gitolite 
 RUN su - git -c gitolite/install -to $HOME/bin 
-RUN su - git -c $HOME/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE} 
+RUN su - git -c $HOME/bin/gitolite setup -pk /data/rsa/id_rsa.pub
 
 EXPOSE 22
