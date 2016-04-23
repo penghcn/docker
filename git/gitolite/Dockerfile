@@ -12,7 +12,8 @@ ENV GIT_USER git
 ## yourself password
 ENV GIT_PASS 3c64cabe1fa4ad21724cef18eed9b3550511177b2643947cddcc3e62f28967f7
 
-ENV GIT_REPOSITORIES /home/${GIT_USER}/repositories
+ENV GIT_HOME /home/${GIT_USER}
+ENV GIT_REPOSITORIES $GIT_HOME/repositories
 
 ## yourself git config
 ENV GIT_CONF_USER pengh
@@ -35,9 +36,10 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
-RUN su - git -c cd /tmp && mkdir -p /tmp/bin \
+RUN su - git && cd $HOME && mkdir -p $HOME/bin \
 	&& git clone ${GITOLITE_GITHUB} \
-	&& gitolite/install -to /tmp/bin \
-	&& /tmp/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE}
+	&& gitolite/install -to $HOME/bin \
+	&& $HOME/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE}
+	&& exit
 
 EXPOSE 22
