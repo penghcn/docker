@@ -1,5 +1,9 @@
-##gitolite
-##wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitolite/Dockerfile
+## gitolite
+## git clone git@xx.xx.xx.xx:pengh/express
+## http://blog.csdn.net/zhangjs0322/article/details/32711211
+## http://github.com/sitaramc/gitolite
+
+## wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitolite/Dockerfile
 FROM debian:jessie
 MAINTAINER pengh "qingseyunlan@gmail.com"
 ## yourself password
@@ -20,7 +24,6 @@ ENV GIT_CONF_USER pengh
 ENV GIT_CONF_MAIL qingseyunlan@gmail.com
 
 ENV GITOLITE_ADMIN_PATH $GIT_REPOSITORIES/gitosis-admin.git
-## http://github.com/sitaramc/gitolite
 ENV GITOLITE_GITHUB git://github.com/sitaramc/gitolite
 
 
