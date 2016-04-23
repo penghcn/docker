@@ -36,14 +36,15 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
-RUN mkdir -p $GIT_HOME/bin \
-	&& echo 'cd $HOME && echo $HOME \
-		&& git clone git://github.com/sitaramc/gitolite \
+RUN echo 'cd $HOME && echo $HOME \
+		&& mkdir -p $HOME/bin
+		&& git clone ${GITOLITE_GITHUB} \
 		&& gitolite/install -to $HOME/bin \
-		&& $HOME/bin/gitolite setup -pk /data/rsa/id_rsa.pub'\
+		&& $HOME/bin/gitolite setup -pk ${RSA_KEY_PUB_FILE}'\
 	| tee /tmp/gitolite.sh\
 	&& chmod 0777 /tmp/gitolite.sh
-RUN su - git -s /bin/bash /tmp/gitolite.sh
+RUN su - git -s /bin/bash /tmp/gitolite.sh 
+	&& rm /tmp/gitolite.sh
 
 
 
