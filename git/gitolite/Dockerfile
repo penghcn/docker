@@ -4,6 +4,8 @@
 ## http://github.com/sitaramc/gitolite
 
 ## wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitolite/Dockerfile
+## sudo docker build -t pengh/gitolite:0.1.5 .
+
 FROM debian:jessie
 MAINTAINER pengh "qingseyunlan@gmail.com"
 ## yourself password
