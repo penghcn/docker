@@ -1,4 +1,5 @@
 ##gitosis
+##wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitosis/Dockerfile
 FROM debian:jessie
 MAINTAINER pengh "qingseyunlan@gmail.com"
 ## yourself password
@@ -21,11 +22,10 @@ ENV GITOSIS_ADMIN_PATH $GIT_REPOSITORIES/gitosis-admin.git
 ENV GITOSIS_GITHUB https://github.com/res0nat0r/gitosis.git
 
 
-RUN mkdir -p ${RSA_KEY_STORE_PATH} \
-	&& cd ${RSA_KEY_STORE_PATH} \
-	&& apt-get install -y openssh-server openssh-client git-core python-setuptools  \
-	&& ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} \
-	&& useradd -m ${GIT_USER} \
+RUN mkdir -p ${RSA_KEY_STORE_PATH} && cd ${RSA_KEY_STORE_PATH} 
+RUN	apt-get update	&& apt-get install -y openssh-server openssh-client git-core python-setuptools  
+RUN	ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
+RUN	useradd -m ${GIT_USER} \
 	&& echo ${GIT_USER}:${GIT_PASS} | chpasswd \
 	&& mkdir -p ${GIT_REPOSITORIES} \
 	&& chown ${GIT_USER}:${GIT_USER} ${GIT_REPOSITORIES} \
