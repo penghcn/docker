@@ -23,7 +23,7 @@ ENV GITOLITE_GITHUB http://github.com/sitaramc/gitolite
 
 
 RUN mkdir -p ${RSA_KEY_STORE_PATH} && cd ${RSA_KEY_STORE_PATH} 
-RUN apt-get update && apt-get install -y openssh-server openssh-client git-core python-setuptools  
+RUN apt-get update && apt-get install -y openssh-server openssh-client git-core
 RUN ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
 
 RUN useradd -m ${GIT_USER} \
