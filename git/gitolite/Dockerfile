@@ -22,10 +22,14 @@ ENV GIT_REPOSITORIES $GIT_HOME/repositories
 ENV GIT_CONF_USER pengh
 ENV GIT_CONF_MAIL qingseyunlan@gmail.com
 
-RUN apt-get update && apt-get install -y openssh-server git-core
+RUN apt-get update && apt-get install -y locale-gen openssh-server git-core 
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
+# To avoid annoying "perl: warning: Setting locale failed." errors,
+# do not allow the client to pass custom locals, see:
+# http://stackoverflow.com/a/2510548/15677
+RUN sed -i 's/^AcceptEnv LANG LC_\*$//g' /etc/ssh/sshd_config
 
 ## RUN ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
 ## 空密码
