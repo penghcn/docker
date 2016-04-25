@@ -35,7 +35,7 @@ RUN useradd -m ${GIT_USER} \
 	&& git config --global user.name ${GIT_CONF_USER} \
 	&& git config --global user.email ${GIT_CONF_MAIL} 
 
-RUN ~/.ssh/id_rsa.pub ${GIT_HOME}/gitolite_admin_pengh.pub \
+RUN cp ~/.ssh/id_rsa.pub ${GIT_HOME}/gitolite_admin_pengh.pub \
 	&& echo 'cd $HOME && echo $HOME \
 		&& mkdir -p $HOME/bin \
 		&& git clone git://github.com/sitaramc/gitolite \
