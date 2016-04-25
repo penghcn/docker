@@ -22,7 +22,7 @@ ENV GIT_REPOSITORIES $GIT_HOME/repositories
 ENV GIT_CONF_USER pengh
 ENV GIT_CONF_MAIL qingseyunlan@gmail.com
 
-RUN apt-get update && apt-get install -y openssh-server openssh-client git-core
+RUN apt-get update && apt-get install -y openssh-server git-core
 ## RUN ssh-keygen -t rsa -N ${RSA_KEY_PASSPHRASE} -f ${RSA_KEY_STORE_FILE} 
 ## 空密码
 RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
