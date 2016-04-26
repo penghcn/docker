@@ -58,6 +58,6 @@ RUN su - ${GIT_USER} -s /bin/bash /tmp/gitolite.sh \
 
 VOLUME $GIT_REPOSITORIES
 
-CMD service ssh restart
+ENTRYPOINT service ssh restart
 
 EXPOSE 22
