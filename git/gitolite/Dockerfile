@@ -22,7 +22,7 @@ ENV GIT_REPOSITORIES $GIT_HOME/repositories
 ENV GIT_CONF_USER pengh
 ENV GIT_CONF_MAIL qingseyunlan@gmail.com
 
-RUN apt-get update && apt-get install -y locale-gen openssh-server git-core 
+RUN apt-get update && apt-get install -y locales openssh-server git-core 
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
