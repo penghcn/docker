@@ -1,5 +1,5 @@
-## wget -c https://raw.githubusercontent.com/penghcn/docker/master/nginx/Dockerfile
-## docker build -t penghcn/nginx-1.10.3 . 
+## sudo wget https://raw.githubusercontent.com/penghcn/docker/master/nginx/Dockerfile
+## sudo docker build -t penghcn/nginx-1.10.3 . 
 FROM ubuntu:xenial
 MAINTAINER pengh "qingseyunlan@gmail.com"
 
