@@ -1,3 +1,4 @@
+## wget -c https://github.com/penghcn/docker/blob/master/nginx/Dockerfile
 FROM ubuntu:xenial
 MAINTAINER pengh "qingseyunlan@gmail.com"
 
