@@ -47,7 +47,7 @@ services:
     - GITLAB_TIMEZONE=Beijing
 
     - GITLAB_HTTPS=true
-    - SSL_SELF_SIGNED=true
+    - SSL_SELF_SIGNED=false
 
     - GITLAB_HOST=repo.pengh.cn
     - GITLAB_PORT=443
