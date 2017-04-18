@@ -1,3 +1,4 @@
+version: '2'
 services:
   redis:
     restart: always
@@ -25,8 +26,8 @@ services:
     - redis
     - postgresql
     ports:
-    - "443:80"
-    - "40022:22"
+    - "10080:80"
+    - "10022:22"
     volumes:
     - /data/docker_conf/gitlab/gitlab:/home/git/data:Z
     environment:
