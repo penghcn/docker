@@ -15,7 +15,7 @@ services:
     - /data/docker_conf/gitlab/postgresql:/var/lib/postgresql:Z
     environment:
     - DB_USER=gitlab
-    - DB_PASS=password
+    - DB_PASS=9fa09bcd095ab855f6ee361103929139
     - DB_NAME=gitlabhq_production
     - DB_EXTENSION=pg_trgm
 
@@ -37,7 +37,7 @@ services:
     - DB_HOST=postgresql
     - DB_PORT=5432
     - DB_USER=gitlab
-    - DB_PASS=password
+    - DB_PASS=9fa09bcd095ab855f6ee361103929139
     - DB_NAME=gitlabhq_production
 
     - REDIS_HOST=redis
