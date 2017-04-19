@@ -31,7 +31,7 @@ services:
     volumes:
     - /data/docker_conf/gitlab/gitlab:/home/git/data:Z
     environment:
-    - DEBUG=false
+    - DEBUG=true
 
     - DB_ADAPTER=postgresql
     - DB_HOST=postgresql
