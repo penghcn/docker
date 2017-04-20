@@ -1,3 +1,5 @@
+## reqires 4cores+ cpu, 2G+ memory
+## another choice --> gogs
 version: '2'
 services:
   redis:
