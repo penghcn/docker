@@ -13,6 +13,7 @@
     sudo docker -v
   
 ## Dockerfile
-  gitolite,
-  php7-nginx-yaf,
-  nginx-openssl-1.0.2
+    gitolite
+    php7-nginx-yaf
+    nginx-openssl-1.0.2
+    ...
