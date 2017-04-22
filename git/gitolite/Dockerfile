@@ -4,7 +4,7 @@
 ## http://github.com/sitaramc/gitolite
 
 ## wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitolite/Dockerfile
-## sudo docker build -t pengh/gitolite:0.1.6 .
+## sudo docker build -t pengh/gitolite:0.1.7 .
 
 FROM debian:jessie
 MAINTAINER pengh "qingseyunlan@gmail.com"
@@ -58,6 +58,6 @@ RUN su - ${GIT_USER} -s /bin/bash /tmp/gitolite.sh \
 
 VOLUME $GIT_REPOSITORIES
 
-ENTRYPOINT service ssh restart
+##ENTRYPOINT service ssh restart
 
 EXPOSE 22
