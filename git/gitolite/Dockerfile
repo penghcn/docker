@@ -3,8 +3,14 @@
 ## http://blog.csdn.net/zhangjs0322/article/details/32711211
 ## http://github.com/sitaramc/gitolite
 
+## 
 ## wget https://raw.githubusercontent.com/penghcn/docker/master/git/gitolite/Dockerfile
 ## sudo docker build -t pengh/gitolite:0.1.7 .
+## sudo docker run -ti -h 'dc_git' -p 40022:22 -v /etc/localtime:/etc/localtime:ro -v /data/repositories:/data/repositories --name=dc_git pengh/gitolite:0.1.7 /bin/bash
+## sudo docker attach dc_git
+## service ssh restart
+##
+## cp ~/.ssh/id_rsa /data/repositories
 
 FROM debian:jessie
 MAINTAINER pengh "qingseyunlan@gmail.com"
