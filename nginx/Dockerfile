@@ -1,6 +1,6 @@
 ## sudo wget https://raw.githubusercontent.com/penghcn/docker/master/nginx/Dockerfile
 ## sudo docker build -t penghcn/nginx-1.12.0 . 
-FROM ubuntu:xenial
+FROM ubuntu
 MAINTAINER pengh "qingseyunlan@gmail.com"
 
 ENV NGINX_VERSION 1.12.0-1~stretch
