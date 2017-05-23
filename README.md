@@ -25,5 +25,5 @@ http://hub-mirror.c.163.com
 Preferences -> Daemon -> Registry mirrors -> add -> Apply & Restart
 
 ### ubuntu
-echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://hub-mirror.c.163.com\"" | sudo tee -a /etc/default/docker
-sudo service docker restart
+    echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://hub-mirror.c.163.com\"" | sudo tee -a /etc/default/docker
+    sudo service docker restart
