@@ -17,3 +17,6 @@
     php7-nginx-yaf
     nginx-openssl-1.0.2
     ...
+
+## 国内 mirror
+http://hub-mirror.c.163.com
