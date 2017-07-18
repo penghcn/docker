@@ -1,10 +1,10 @@
 ## sudo wget https://raw.githubusercontent.com/penghcn/docker/master/nginx/Dockerfile
-## sudo docker build -t penghcn/nginx-1.12.0 . 
+## sudo docker build -t penghcn/nginx-1.13.0 . 
 FROM ubuntu
 MAINTAINER pengh "qingseyunlan@gmail.com"
 
-ENV NGINX_VERSION 1.12.0-1~stretch
-ENV NJS_VERSION   1.12.0.0.1.10-1~stretch
+ENV NGINX_VERSION 1.13.3-1~stretch
+ENV NJS_VERSION   1.13.3.0.1.11-1~stretch
 
 RUN apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y gnupg1 \
@@ -22,7 +22,7 @@ RUN apt-get update \
 	done; \
 	test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
 	apt-get remove --purge -y gnupg1 && apt-get -y --purge autoremove && rm -rf /var/lib/apt/lists/* \
-	&& echo "deb http://nginx.org/packages/debian/ stretch nginx" >> /etc/apt/sources.list \
+	&& echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 						nginx=${NGINX_VERSION} \
@@ -39,6 +39,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 EXPOSE 80
 
-STOPSIGNAL SIGQUIT
+STOPSIGNAL SIGTERM
 
 CMD ["nginx", "-g", "daemon off;"]
