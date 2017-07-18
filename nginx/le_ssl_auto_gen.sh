@@ -1,4 +1,5 @@
 #!/bin/sh
+
 ## http://www.tuicool.com/articles/iUvY3aF
 ## https://github.com/diafygi/acme-tiny
 ## https://github.com/certbot/certbot
@@ -8,9 +9,15 @@ echo "auto update letsencrypt..."
 ## define you path
 PATH=/data/docker_conf/nginx/ssl/le
 
+## download file
+## https://github.com/diafygi/acme-tiny
 ACME_TINY_FILE=$PATH/acme_tiny.py
-LE_PATH=$PATH/passet.com.cn
 LE_ACME_DIR=$LE_PATH/challenges/
+
+## domain ssl path
+LE_PATH=$PATH/passet.com.cn
+
+## define you all dns
 DNS=DNS:passet.com.cn,DNS:www.passet.com.cn
 
 cd $LE_PATH/tmp
