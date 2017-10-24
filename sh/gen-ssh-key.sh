@@ -1,4 +1,7 @@
 #!/bin/bash
+
+## 参考https://segmentfault.com/a/1190000000585526
+
 KEY_PATH=~/.ssh/keys
 
 if [ ! -n "$1" ] ;then
@@ -25,6 +28,6 @@ echo "Host $keyName
         HostName $3
         User $2
         PubkeyAuthentication yes
-        IdentityFile $keyFile"
+        IdentityFile ~/.ssh/keys/$keyName"
 echo "\n3、保存退出。以后就可以这样简单连接了 ssh $keyName"
 
