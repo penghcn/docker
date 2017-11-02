@@ -1,9 +1,15 @@
 #!/bin/bash
 ## 某java程序down后，保存现场信息
+## 参考https://dubbo.gitbooks.io/dubbo-dev-book/principals/dummy.html
+## 参考http://javatar.iteye.com/blog/804187
+
+##根据自己项目的java目录，修改下面JAVA_HOME值
 
 JAVA_HOME=/usr/java/jdk1.6.0_31/bin/
 JAVA_HOME=$HOME/jdk1.8.0_101/bin/ 
+
 OUTPUT_HOME=$HOME/output  
+
 DEPLOY_HOME=`dirname $0`  
 HOST_NAME=`hostname`  
 
