@@ -1,5 +1,5 @@
 #!/bin/bash
-## 某java程序down后，保存现场信息
+## 某java程序down后，先用sh dump.sh保存现场信息，再kill重启
 ## 参考https://dubbo.gitbooks.io/dubbo-dev-book/principals/dummy.html
 ## 参考http://javatar.iteye.com/blog/804187
 
