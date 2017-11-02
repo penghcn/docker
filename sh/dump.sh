@@ -2,8 +2,8 @@
 ## 某java程序down后，保存现场信息
 
 JAVA_HOME=/usr/java/jdk1.6.0_31/bin/
-JAVA_HOME="$HOME/jdk1.8.0_101/bin/"  
-OUTPUT_HOME=~/output  
+JAVA_HOME=$HOME/jdk1.8.0_101/bin/ 
+OUTPUT_HOME=$HOME/output  
 DEPLOY_HOME=`dirname $0`  
 HOST_NAME=`hostname`  
 
