@@ -1,6 +1,7 @@
 ## 
 ## sudo docker build -t php-fpm-nginx:7.2-1.16 .
-## sudo docker build https://github.com/penghcn/docker/blob/master/php/Dockerfile -t php-fpm-nginx:7.2-1.16 .
+## sudo docker build https://raw.githubusercontent.com/penghcn/docker/master/php/Dockerfile -t php-fpm-nginx:7.2-1.16
+## sudo docker image ls
 ## sudo docker save php-fpm-nginx:7.2-1.16 | gzip > php-fpm-nginx72-116.tar.gz
 ## 
 ## https://github.com/docker-library/php/blob/a7e2de0e8f2b902bc36be6f5d61c0b4fcd1052ff/7.2/stretch/fpm/Dockerfile
