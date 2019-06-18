@@ -9,6 +9,13 @@
 FROM php:7.2-fpm
 MAINTAINER pengh "qingseyunlan@gmail.com"
 
+## install php-ext, zip gd pdo_mysql
+RUN apt-get update \
+    && apt-get install -y libzip-dev libpng-dev \
+    && docker-php-ext-install gd zip pdo pdo_mysql
+
+
+
 
 ## install nginx
 ## https://github.com/nginxinc/docker-nginx/blob/9a052e07b2c283df9960375ee40be50c5c462a7e/stable/stretch/Dockerfile
