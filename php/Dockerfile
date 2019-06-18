@@ -26,7 +26,7 @@ ENV NJS_VERSION     0.3.1
 ENV PKG_RELEASE     1~stretch
 
 RUN set -x \
-    && apt-get update \
+##    && apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y gnupg1 apt-transport-https ca-certificates \
     && \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
