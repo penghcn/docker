@@ -1,6 +1,6 @@
 ## 
 ## sudo docker build -t php-fpm-nginx:7.2-1.16 .
-## sudo docker build https://raw.githubusercontent.com/penghcn/docker/master/php/Dockerfile -t php-fpm-nginx:7.2-1.16
+## sudo docker build https://raw.githubusercontent.com/penghcn/docker/master/php/Dockerfile -t php-fpm-nginx:7.2-1.16-2
 ## sudo docker image ls
 ## sudo docker save php-fpm-nginx:7.2-1.16 | gzip > php-fpm-nginx72-116.tar.gz
 ## 
@@ -11,8 +11,11 @@ MAINTAINER pengh "qingseyunlan@gmail.com"
 
 ## install php-ext, zip gd pdo_mysql
 RUN apt-get update \
-    && apt-get install -y libzip-dev libpng-dev \
-    && docker-php-ext-install gd zip pdo pdo_mysql
+    && apt-get install -y libzip-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev jpeg-dev libjpeg \
+    && docker-php-ext-install zip pdo pdo_mysql
+    && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
 
 
 
