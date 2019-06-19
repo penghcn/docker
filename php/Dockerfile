@@ -11,7 +11,7 @@ MAINTAINER pengh "qingseyunlan@gmail.com"
 
 ## install php-ext, zip gd pdo_mysql
 RUN apt-get update \
-    && apt-get install -y libzip-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev jpeg-dev libjpeg \
+    && apt-get install -y libzip-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev  \
     && docker-php-ext-install zip pdo pdo_mysql \
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
